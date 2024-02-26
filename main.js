@@ -47,19 +47,11 @@ const renderPage = (jsModule, serverApi, css) => {
         })
 }
 
-if (productId) {
-    renderPage(
-        "./product_detail.js",
-        `https://api.escuelajs.co/api/v1/products/${productId}`,
-        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    )
-} else {
-    renderPage(
-        "./product_list.js",
-        "https://api.escuelajs.co/api/v1/products",
-        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    )
-}
+renderPage(
+    productId ? "./product_detail.js" : "./product_list.js",
+    `https://api.escuelajs.co/api/v1/products/${productId ? productId : ''}`,
+    "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+)
 
 
 
